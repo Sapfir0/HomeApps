@@ -1,0 +1,3 @@
+
+  
+      docker run -it --rm --name icloudpd -v $(pwd)/Photos:/data -e TZ=Europe/Moscow icloudpd/icloudpd:latest icloudpd --directory /data --username alexander.yurev@internet.ru --watch-with-interval 3600
