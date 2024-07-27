@@ -1,0 +1,6 @@
+[submodule "minecraft-server"]
+	path = minecraft-server
+	url = https://github.com/Sapfir0/minecraft-server
+[submodule "image-storage"]
+	path = image-storage
+	url = https://github.com/Sapfir0/image-storage
