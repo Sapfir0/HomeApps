@@ -1,0 +1,13 @@
+services:
+  healthchecks:
+    image: healthchecks/healthchecks:latest
+    container_name: healthchecks
+    ports:
+      - 8020:8000
+    volumes:
+      - healthchecks-data:/data
+    restart: unless-stopped
+
+volumes:
+    healthchecks-data:
+

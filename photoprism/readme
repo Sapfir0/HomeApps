@@ -1,6 +1,3 @@
 
 
-Create .env
-    
-    PHOTOPRISM_ADMIN_USER: "your username"        
-    PHOTOPRISM_ADMIN_PASSWORD: "your password"
+Изменить `PHOTOPRISM_ADMIN_PASSWORD` перед разверткой 
