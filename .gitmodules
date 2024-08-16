@@ -1,6 +1,3 @@
 [submodule "minecraft-server"]
 	path = minecraft-server
 	url = https://github.com/Sapfir0/minecraft-server
-[submodule "home-assistant"]
-	path = home-assistant
-	url = https://github.com/Sapfir0/home-assistant
