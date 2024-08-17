@@ -1,0 +1,16 @@
+services:
+  grafana:
+    image: grafana/grafana-oss:${GRAFANA_VERSION:-8.3.3}
+    ports:
+      - "8888:3000"
+    volumes:
+      - grafana-lib:/var/lib/grafana
+      # - ./config/grafana/provisioning:/etc/grafana/provisioning
+      # - ./config/grafana/dashboards:/etc/grafana/dashboards
+    # env_file:
+      # - config.env
+    # depends_on:
+    #   - prometheus
+
+volumes:
+  grafana-lib: {}
