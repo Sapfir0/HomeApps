@@ -5,12 +5,10 @@ services:
       - "8888:3000"
     volumes:
       - grafana-lib:/var/lib/grafana
-      # - ./config/grafana/provisioning:/etc/grafana/provisioning
-      # - ./config/grafana/dashboards:/etc/grafana/dashboards
-    # env_file:
-      # - config.env
-    # depends_on:
-    #   - prometheus
+      - ./provisioning:/etc/grafana/provisioning
+      - ./dashboards:/etc/grafana/dashboards
+    env_file:
+      - stack.env
 
 volumes:
   grafana-lib: {}
