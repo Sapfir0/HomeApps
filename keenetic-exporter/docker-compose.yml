@@ -8,9 +8,9 @@ services:
     environment:
      - TZ=Europe/Moscow
     volumes:
-      - ./config.ini:/home/config/config.ini:ro
+      - S:/HomeApps/keenetic-exporter/config.ini:/home/config/config.ini:ro
       # Optionally you can override metrics
-      - ./metrics.json:/home/config/metrics.json:ro
+      - S:/HomeApps/keenetic-exporter/metrics.json:/home/config/metrics.json:ro
   
   # Influx 2.x
 
@@ -25,6 +25,6 @@ services:
       - DOCKER_INFLUXDB_INIT_ORG=keenetic
       - DOCKER_INFLUXDB_INIT_BUCKET=keenetic
       - DOCKER_INFLUXDB_INIT_RETENTION=52w
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=admin_token
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=admin:password
       - DOCKER_INFLUXDB_INIT_USERNAME=admin
       - DOCKER_INFLUXDB_INIT_PASSWORD=password

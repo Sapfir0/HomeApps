@@ -91,20 +91,6 @@ services:
       - prometheus-tsdb:/prometheus
     depends_on:
       - monitor
- 
-  grafana:
-    image: grafana/grafana-oss:${GRAFANA_VERSION:-8.3.3}
-    ports:
-      - "8888:3000"
-    volumes:
-      - grafana-lib:/var/lib/grafana
-      # заменить путь на .
-      - S:/HomeApps/minecraft-server/config/grafana/provisioning:/etc/grafana/provisioning
-      - S:/HomeApps/minecraft-server/config/grafana/dashboards:/etc/grafana/dashboards
-    env_file:
-      - stack.env
-    depends_on:
-      - prometheus
   
   telegraf:
     image: telegraf:1.13
