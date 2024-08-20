@@ -5,10 +5,18 @@ services:
       - "8888:3000"
     volumes:
       - grafana-lib:/var/lib/grafana
-      - ./provisioning:/etc/grafana/provisioning
-      - ./dashboards:/etc/grafana/dashboards
+      - /home/alexander/homeapps/grafana/provisioning:/etc/grafana/provisioning
+      - /home/alexander/homeapps/grafana/dashboards:/etc/grafana/dashboards
+    networks:
+      - prometheus_local_network
     env_file:
       - stack.env
 
 volumes:
   grafana-lib: {}
+
+# починить external сеть
+# networks:
+#   prometheus_local_network:
+#     external:
+#       name: prometheus_local_network

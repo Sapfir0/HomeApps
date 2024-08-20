@@ -1,0 +1,79 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  vars:
+    docker_compose_version: "2.27.3"
+  tasks:
+    - import_tasks: ../tasks/apt-upgrade.yml
+
+    - name: Install dependencies
+      apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+      vars:
+        packages:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - gnupg-agent
+
+    # DOCKER INSTALLATION
+    - name: Add an apt signing key for Docker
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add apt repository for stable version
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    - name: Install Docker
+      apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+      vars:
+        packages:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+
+    - name: Add user to docker group
+      user:
+        name: "{{ansible_user}}"
+        group: docker
+
+    - name: Download docker-compose {{ docker_compose_version }}
+      get_url:
+        url: https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-darwin-x86_64
+        dest: ~/docker-compose
+        mode: "+x"
+
+    - name: Check docker-compose exists
+      stat: path=~/docker-compose
+      register: docker_compose
+
+    - name: Move docker-compose to /usr/local/bin/docker-compose
+      command: mv ~/docker-compose /usr/local/bin/docker-compose
+      when: docker_compose.stat.exists
+
+    # REQUIRED PACKAGES FOR USING ANSIBLE DOCKER (for portainer installation below)
+    - name: Install related Ubuntu packages
+      apt:
+        name: "{{ packages }}"
+        state: latest
+      vars:
+        packages:
+          - python3-pip
+          - mc
+
+    - name: Schedule Docker system prune -a to be done daily
+      cron:
+        name: "Remove all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes."
+        minute: "55"
+        hour: "3"
+        job: docker system prune -a --force
+        state: present

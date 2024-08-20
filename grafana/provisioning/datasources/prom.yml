@@ -5,3 +5,15 @@ datasources:
     type: prometheus
     access: proxy
     url: http://prometheus:9090
+
+  - name: InfluxDB_v2_Keenetic
+    type: influxdb
+    access: proxy
+    url: http://influxdb:8086
+    jsonData:
+      version: Flux
+      organization: organization
+      defaultBucket: keenetic
+      tlsSkipVerify: true
+    secureJsonData:
+      token: admin_token

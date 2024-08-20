@@ -36,7 +36,6 @@ services:
       RCON_PASSWORD: "93hohatu"
       RCON_PORT: 25575
 
-
     tty: true
     stdin_open: true
     restart: unless-stopped
@@ -83,15 +82,7 @@ services:
       - /var/run:/var/run:rw
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
-  prometheus:
-    image: prom/prometheus
-    volumes:
-    # ./config/prometheus/prometheus.yml
-      - S:/HomeApps/minecraft-server/config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      - prometheus-tsdb:/prometheus
-    depends_on:
-      - monitor
-  
+
   telegraf:
     image: telegraf:1.13
     ports:

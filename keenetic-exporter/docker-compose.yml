@@ -1,30 +1,28 @@
-version: '3.7'
-
 services:
-
   keenetic-grafana-monitoring:
     image: techh/keenetic-grafana-monitoring:2.0.2
     container_name: keenetic-grafana-monitoring
-    environment:
-     - TZ=Europe/Moscow
     volumes:
-      - S:/HomeApps/keenetic-exporter/config.ini:/home/config/config.ini:ro
+      - /home/alexander/homeapps/keenetic-exporter/config.ini:/home/config/config.ini:ro
       # Optionally you can override metrics
-      - S:/HomeApps/keenetic-exporter/metrics.json:/home/config/metrics.json:ro
-  
+      - /home/alexander/homeapps/keenetic-exporter/metrics.json:/home/config/metrics.json:ro
+    depends_on:
+      - influxdb
+
   # Influx 2.x
 
   influxdb:
     image: 'influxdb:2.1'
     volumes:
-      - ./_data/influxdb:/var/lib/influxdb
+      - /home/alexander/_data/influxdb:/var/lib/influxdb 
     ports: 
       - 8086:8086
+      
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
-      - DOCKER_INFLUXDB_INIT_ORG=keenetic
-      - DOCKER_INFLUXDB_INIT_BUCKET=keenetic
+      - DOCKER_INFLUXDB_INIT_ORG=influxdb
+      - DOCKER_INFLUXDB_INIT_BUCKET=keen
       - DOCKER_INFLUXDB_INIT_RETENTION=52w
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=admin:password
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=4udwL1tmi54Wpc9NBHItePi1-iKWcUN4wK0DZ1KriJaTaU5BXrGuhh_zEPhVSMcvss4R0A7R2f8cKGms5SFydw==
       - DOCKER_INFLUXDB_INIT_USERNAME=admin
       - DOCKER_INFLUXDB_INIT_PASSWORD=password

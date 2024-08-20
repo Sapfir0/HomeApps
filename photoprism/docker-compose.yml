@@ -19,13 +19,13 @@ services:
     ## Changes to the config options in stack.env always require a restart to take effect:
     ## https://docs.photoprism.app/getting-started/config-options/
     # Uncomment while local development
-    # env_file:
-    #   - stack.env
+    env_file:
+      - example.stack.env
     working_dir: "/photoprism" # do not change or remove
     ## Storage Folders: "~" is a shortcut for your home directory, "." for the current directory
     volumes:
-      - "S:/AbstractImages:/photoprism/originals" # Originals mount path can be changed as needed (DO NOT REMOVE)
-      - "S:/storage:/photoprism/storage"     # *Writable* storage folder for cache, database, and sidecar files (DO NOT REMOVE)
+      - "/srv/samba/share/photoprism/images:/photoprism/originals" # Originals mount path can be changed as needed (DO NOT REMOVE)
+      - "/srv/samba/share/photoprism/storage:/photoprism/storage"     # *Writable* storage folder for cache, database, and sidecar files (DO NOT REMOVE)
 
   mariadb:
     image: mariadb:11
@@ -41,5 +41,5 @@ services:
     volumes:
       - "./database:/var/lib/mysql" # DO NOT REMOVE
     # Uncomment while local development  
-    # env_file:
-    #   - stack.env
+    env_file:
+      - example.stack.env
