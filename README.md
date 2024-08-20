@@ -4,6 +4,10 @@
 
 Устанавливаем portainer, там добавляем другие репозитории как stack
 
+Настраиваем Samba
+
+https://www.dmosk.ru/instruktions.php?object=samba-ubuntu
+
 ### Health checks
 
 Проверим не упала ли крон джоба или сервис
@@ -18,7 +22,7 @@
 
 ### TPWS
 
-Роутинг для роутера
+Роутинг для роутера https://github.com/Sapfir0/home-assistant
 
 ### Home assistant
 
