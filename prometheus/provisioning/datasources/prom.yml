@@ -9,11 +9,11 @@ datasources:
   - name: InfluxDB_v2_Keenetic
     type: influxdb
     access: proxy
-    url: http://influxdb:8086
+    url: http://192.168.1.136:8086/
     jsonData:
       version: Flux
-      organization: organization
-      defaultBucket: keenetic
+      organization: influxdb
+      defaultBucket: keen
       tlsSkipVerify: true
     secureJsonData:
-      token: admin_token
+      token: 4udwL1tmi54Wpc9NBHItePi1-iKWcUN4wK0DZ1KriJaTaU5BXrGuhh_zEPhVSMcvss4R0A7R2f8cKGms5SFydw==

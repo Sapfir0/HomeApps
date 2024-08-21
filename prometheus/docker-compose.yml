@@ -1,10 +1,9 @@
-version: '3.9'
-
 services:
   prometheus:
     image: prom/prometheus:latest
     volumes:
       - /home/alexander/homeapps/prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - /home/alexander/prometheus:/prometheus
     container_name: prometheus
     hostname: prometheus
     command:
@@ -12,8 +11,6 @@ services:
     ports:
       - 9090:9090
     restart: unless-stopped
-    networks:
-      - prometheus_local_network
 
   node-exporter:
     image: prom/node-exporter
@@ -31,9 +28,36 @@ services:
     ports:
       - 9100:9100
     restart: unless-stopped
-    networks:
-      - prometheus_local_network
 
+  grafana:
+    image: grafana/grafana-oss:${GRAFANA_VERSION:-8.3.3}
+    ports:
+      - "8888:3000"
+    volumes:
+      - grafana-lib:/var/lib/grafana
+      - /home/alexander/homeapps/prometheus/provisioning:/etc/grafana/provisioning
+      - /home/alexander/homeapps/prometheus/dashboards:/etc/grafana/dashboards
+    env_file:
+      - stack.env
 
-networks:
-  prometheus_local_network:
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor
+    ports:
+      - "8180:8080"
+    privileged: true
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+
+  telegraf:
+    image: telegraf:1.13
+    ports:
+    - 8094:8094
+    volumes:
+    - /home/alexander/homeapps/prometheus/config/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+
+volumes:
+  grafana-lib: {}
+

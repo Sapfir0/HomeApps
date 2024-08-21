@@ -1,0 +1,17 @@
+services:
+  portainer:
+    image: portainer/portainer-ce
+    name: portainer
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    env_file: 
+      - stack.env
+    restart: always
+    ports:
+      - "8000:8000"
+      - "9443:9443"
+
+
+
