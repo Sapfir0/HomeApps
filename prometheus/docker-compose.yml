@@ -30,7 +30,7 @@ services:
     restart: unless-stopped
 
   grafana:
-    image: grafana/grafana-oss:${GRAFANA_VERSION:-8.3.3}
+    image: grafana/grafana-oss:${GRAFANA_VERSION:-11.0.3}
     ports:
       - "8888:3000"
     volumes:

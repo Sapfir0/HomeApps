@@ -1,0 +1,19 @@
+volumes:
+   config:
+      name: icloudpd_config
+
+services:
+   icloud-exporter:
+      hostname: icloudpd_alexander
+      environment:
+         - TZ=Europe/Moscow
+      image: boredazfcuk/icloudpd
+      healthcheck:
+         test: /usr/local/bin/healthcheck.sh
+         start_period: 30s
+      env_file:
+        - stack.env
+      restart: always
+      volumes:
+         - /home/alexander/homeapps/icloud/config:/config
+         - /srv/samba/share/iCloud/:/srv/samba/share/iCloud/
