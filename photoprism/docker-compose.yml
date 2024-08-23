@@ -20,7 +20,7 @@ services:
       - stack.env
     working_dir: "/photoprism" # do not change or remove
     volumes:
-      - "/srv/samba/share/photoprism/images:/photoprism/originals" # Originals mount path can be changed as needed (DO NOT REMOVE)
+      - "/srv/samba/share/images:/photoprism/originals" # Originals mount path can be changed as needed (DO NOT REMOVE)
       - "/home/alexander/photoprismStorage:/photoprism/storage"     # *Writable* storage folder for cache, database, and sidecar files (DO NOT REMOVE)
 
   mariadb:

@@ -1,0 +1,50 @@
+[
+    {
+      "title": "Portainer",
+      "colour": "#161b1f",
+      "url": "https://192.168.1.136:9443/",
+      "description": "{\"enabled\":\"0\",\"dataonly\":\"1\",\"override_url\":\"https:\\/\\/192.168.1.136:9443\\/\",\"username\":\"admin\",\"password\":\"sanek199894hohatu\",\"ignore_tls\":\"0\"}",
+      "appid": "07b796b3a10eaa8b6f485ed2379187a39400b459",
+      "appdescription": "Portainer is a simple management solution for Docker. Easily manage your Docker hosts and Docker Swarm clusters via Portainer web user interface."
+    },
+    {
+      "title": "HomeAssistant",
+      "colour": "#161b1f",
+      "url": "http://homeassistant.local:8123/",
+      "description": "{\"enabled\":\"0\",\"override_url\":null,\"token\":null,\"first_stat_label\":null,\"first_stat_template\":null,\"second_stat_label\":null,\"second_stat_template\":null}",
+      "appid": "5c81a4f5ee23ebffa0724a22a040c54e6cb9d7c5",
+      "appdescription": "Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts."
+    },
+    {
+      "title": "Prometheus",
+      "colour": "#fafbfc",
+      "url": "http://192.168.1.136:9090/",
+      "description": null,
+      "appid": "aad8f23c2fa06d46c52ae4e06c8d4bdac6074b8f",
+      "appdescription": "Prometheus, a Cloud Native Computing Foundation project, is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts if some condition is observed to be true."
+    },
+    {
+      "title": "Grafana",
+      "colour": "#161b1f",
+      "url": "http://192.168.1.136:8888/",
+      "description": null,
+      "appid": "f519bce8b0ae84d8dbbc0a793bf6a180043be855",
+      "appdescription": "Data visualization & Monitoring with support for Graphite, InfluxDB, Prometheus, Elasticsearch and many more databases."
+    },
+    {
+      "title": "PhotoPrism",
+      "colour": "#fafbfc",
+      "url": "http://192.168.1.136:2342/",
+      "description": "{\"enabled\":\"0\",\"override_url\":null,\"session\":null}",
+      "appid": "f60f5b25d59c397989e3cd374f81cdd7710a4fca",
+      "appdescription": "PhotoPrism is a server-based application for browsing, organizing and sharing your personal photo collection. It makes use of the latest technologies to automatically tag and find pictures without getting in your way. Say goodbye to solutions that force you to upload your visual memories to the cloud."
+    },
+    {
+      "title": "InfluxDB",
+      "colour": "#161b1f",
+      "url": "http://192.168.1.136:8086/",
+      "description": null,
+      "appid": "5e1e914cba38acaa83d4e39139dadbec478fbb6e",
+      "appdescription": "InfluxDB is an open source time series platform. This includes APIs for storing and querying data, processing it in the background for ETL or monitoring and alerting purposes, user dashboards, and visualizing and exploring the data and more."
+    }
+  ]

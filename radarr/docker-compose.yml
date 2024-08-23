@@ -1,0 +1,30 @@
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /home/alexander/radarr/config:/config
+      - /srv/samba/share/jellyfin/Movies:/movies #optional
+      - /srv/samba/share/downloads:/downloads #optional
+    ports:
+      - 7878:7878
+    restart: unless-stopped 
+
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    env_file:
+      - stack.env
+    volumes:
+      - /home/alexander/transmission/data:/config
+      - /srv/samba/share/transmission/result:/downloads
+      - /srv/samba/share/transmission/torrents:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped
+    

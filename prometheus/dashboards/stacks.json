@@ -110,7 +110,7 @@
             },
             "disableTextWrap": false,
             "editorMode": "code",
-            "expr": "rate(container_cpu_user_seconds_total{container_label_com_docker_compose_oneoff=\"False\"}[$__rate_interval])",
+            "expr": "avg(rate(container_cpu_usage_seconds_total{name!=\"\"}[5m]))without(cpu) / 1 * 100\r\n",
             "fullMetaSearch": false,
             "includeNullMetadata": true,
             "instant": false,
@@ -814,6 +814,6 @@
     "timezone": "browser",
     "title": "Stacks",
     "uid": "fdvmlvqacpse8d",
-    "version": 6,
+    "version": 8,
     "weekStart": ""
   }

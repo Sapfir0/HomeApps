@@ -2,6 +2,8 @@ services:
   keenetic-grafana-monitoring:
     image: techh/keenetic-grafana-monitoring:2.0.2
     container_name: keenetic-grafana-monitoring
+    # при перезагрузке роутера упадет, ему нужно будет перезапуститься
+    restart: unless-stopped
     volumes:
       - /home/alexander/homeapps/keenetic-exporter/config.ini:/home/config/config.ini:ro
       # Optionally you can override metrics

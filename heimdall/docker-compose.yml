@@ -1,0 +1,5 @@
+services:
+  heimdall:
+    image: linuxserver/heimdall:2.6.1
+    container_name: heimdall
+    restart: no
