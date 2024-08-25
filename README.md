@@ -1,45 +1,37 @@
 
 
-## Приложения для домашнего сервера
 
-1. Устаналиваем Docker по [актуальному гайду](https://docs.docker.com/engine/install/ubuntu) или с помощью скрипта `./install/docker.sh`.
+## Beelink mini s12 pro
 
-1. Устанавливаем Portainer (`install/docker-compose.yml`), там добавляем другие репозитории как stack.
+- [Portainer](https://github.com/Sapfir0/HomeApps/tree/master/install) — аггрегатор Docker образов
+- [Monitoring](https://github.com/Sapfir0/HomeApps/tree/master/prometheus)
+    - Prometheus — собирает данные
+    - Grafana — графики
+    - Telegraf
+    - Node-exporter
+    - Cadvisor
+- [Photoprism](https://github.com/Sapfir0/HomeApps/tree/master/photoprism) — хранит фотографии
+- [Heimdall](https://github.com/Sapfir0/HomeApps/tree/master/heimdall) — главная страница
+- [Media server](https://github.com/Sapfir0/HomeApps/tree/master/radarr)
+    - Radarr — медиасервер для фильмов
+    - Sonarr — медиасервер для сериалов
+    - Transmission — торрент трекер
+    - Jellyfin
+    - Prowlarr
+    - Overseer
+- [iCloud exporter](https://github.com/Sapfir0/HomeApps/tree/master/icloud) — кронджоба в докере, которая получает данные из iCloud и кладет в хранилище Photoprism
+    - Форматируем фото с помощью https://github.com/andrewning/sortphotos
+- [Keenetic-exporter](https://github.com/Sapfir0/HomeApps/tree/master/keenetic-exporter) — экспортирует данные с сервера по загрузке роутера и сети. Нужно добавить сеть к Prometheus.
+- [Minecraft-server](https://github.com/Sapfir0/HomeApps/tree/master/minecraft-server) — для того, чтобы была аналитика и данные приходили в Prometheus, нужно добавить контейнеру прометея сеть из minecraft-server.
 
-1. [Настраиваем](https://www.dmosk.ru/instruktions.php?object=samba-ubuntu) Samba
+## Raspberry Pi 4
+
+- [Home assistant](https://github.com/Sapfir0/home-assistant) — развернут на HA OS
 
 
-### Prometheus
+## Keenetic Giga
 
-[Таргеты](http://192.168.1.136:9090/targets?search=)
+* [TPWS](https://github.com/Sapfir0/keenetic-opkg)
 
-Экспортит все данные с сервера и не только
 
-### Photoprism
-
-Хранит все фотографии и всех радует 
-
-### ICloud
-
-Кронджоба, которая получает данные из iCloud и кладет в хранилище Photoprism
-
-### Keenetic-exporter
-
-Экспортирует данные с сервера по загрузке роутера и сети.
-
-Нужно добавить сеть к Prometheus.
-
-### Minecraft server
-
-Говорит сам за себя
-
-Для того, чтобы была аналитика и данные приходили в Prometheus, нужно добавить контейнеру прометея сеть из minecraft-server.
-
-### TPWS
-
-[Код на роутере](https://github.com/Sapfir0/keenetic-opkg) 
-
-### Home assistant
-
-Развернут на отдельной машине с помощью HA OS. [Репозиторий](https://github.com/Sapfir0/home-assistant).
 
