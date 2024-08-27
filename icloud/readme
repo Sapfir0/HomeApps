@@ -1,3 +1,3 @@
 
-  
-      docker run -it --rm --name icloudpd -v /srv/samba/share/icloud:/data -e TZ=Europe/Moscow icloudpd/icloudpd:latest icloudpd --directory /data --username alexander.yurev@internet.ru --watch-with-interval 3600
+Фото отсортированы в формате Год/Месяц
+Исходные названия сохранены

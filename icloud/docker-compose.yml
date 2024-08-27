@@ -16,4 +16,4 @@ services:
       restart: always
       volumes:
          - /home/alexander/homeapps/icloud/config:/config
-         - /srv/samba/share/iCloud/:/srv/samba/share/iCloud/
+         - /srv/samba/share/images/:/srv/samba/share/images/

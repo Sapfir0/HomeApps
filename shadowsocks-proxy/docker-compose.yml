@@ -1,0 +1,10 @@
+services:
+  client:
+    container_name: sslocal-rust
+    image: ghcr.io/shadowsocks/sslocal-rust:latest
+    volumes:
+      - /home/alexander/homeapps/shadowsocks-proxy/config.json:/etc/shadowsocks-rust/config.json
+    ports:
+      - "1080:1080/tcp"
+      - 1080:1080/udp
+    restart: unless-stopped

@@ -8,7 +8,7 @@ services:
       - PGID=1000
     volumes:
       - /home/alexander/radarr/config:/config
-      - /srv/samba/share/jellyfin/Movies:/movies #optional
+      - /srv/samba/share/jellyfin/movies:/movies #optional
       - /srv/samba/share/transmission/result:/downloads #optional
     ports:
       - 7878:7878
@@ -91,28 +91,4 @@ services:
       - /home/alexander/plex/library:/config
       - /srv/samba/share/jellyfin/Shows:/tv
       - /srv/samba/share/jellyfin/Movies:/movies
-    restart: unless-stopped
-
-
-  overseerr:
-    image: sctx/overseerr:latest
-    container_name: overseerr
-    environment:
-      - LOG_LEVEL=debug
-    volumes:
-     - /home/alexander/overseer/config:/app/config
-    ports:
-      - 5055:5055
-    restart: unless-stopped
-
-
-  tautulli:
-    image: lscr.io/linuxserver/tautulli:latest
-    container_name: tautulli
-    env_file:
-      - stack.env
-    volumes:
-      - /home/alexander/tautulli/config:/config
-    ports:
-      - 8181:8181
     restart: unless-stopped
