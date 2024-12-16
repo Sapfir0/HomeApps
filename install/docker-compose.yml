@@ -1,7 +1,6 @@
 services:
   portainer:
     image: portainer/portainer-ce
-    name: portainer
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock

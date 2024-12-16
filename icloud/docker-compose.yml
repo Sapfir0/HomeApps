@@ -5,8 +5,6 @@ volumes:
 services:
    icloud-exporter:
       hostname: icloudpd_alexander
-      environment:
-         - TZ=Europe/Moscow
       image: boredazfcuk/icloudpd
       healthcheck:
          test: /usr/local/bin/healthcheck.sh
