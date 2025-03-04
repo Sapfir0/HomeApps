@@ -1,3 +1,7 @@
 
 Фото отсортированы в формате Год/Месяц
 Исходные названия сохранены
+
+Когда устарели данные учетки - обновляем их:
+
+    docker exec -it $(docker ps -a | grep boredazfcuk/icloudpd |  cut -b 1-12) sync-icloud.sh --Initialise
