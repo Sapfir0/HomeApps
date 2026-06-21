@@ -11,7 +11,6 @@ services:
          start_period: 30s
       env_file:
         - stack.env
-      restart: always
       volumes:
          - /home/alexander/homeapps/icloud/config:/config
          - /srv/samba/share/images/:/srv/samba/share/images/

@@ -1,0 +1,16 @@
+services:
+  duplicati:
+    image: ghcr.io/linuxserver/duplicati
+    container_name: duplicati
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Moscow
+    volumes:
+      - /home/alexander/backup/config:/config
+      - /home/alexander/external-ssd:/backups
+      - /srv/samba/share/images:/backup-images:ro
+    restart: unless-stopped
+    ports:
+      - 8200:8200
+        
