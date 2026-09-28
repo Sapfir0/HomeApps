@@ -1,37 +1,30 @@
+**## Beelink Mini S12 Pro**
 
+* [Portainer](https://github.com/Sapfir0/HomeApps/tree/master/install) — Docker image aggregator
 
+* [Monitoring](https://github.com/Sapfir0/HomeApps/tree/master/prometheus)
 
-## Beelink mini s12 pro
+  * Prometheus — collects data
+  * Grafana — visualization and dashboards
+  * Telegraf
+  * Node Exporter
+  * cAdvisor
 
-- [Portainer](https://github.com/Sapfir0/HomeApps/tree/master/install) — аггрегатор Docker образов
-- [Monitoring](https://github.com/Sapfir0/HomeApps/tree/master/prometheus)
-    - Prometheus — собирает данные
-    - Grafana — графики
-    - Telegraf
-    - Node-exporter
-    - Cadvisor
-- [Immich](https://github.com/Sapfir0/HomeApps/tree/master/immich) — хранит фотографии
-- [Heimdall](https://github.com/Sapfir0/HomeApps/tree/master/heimdall) — главная страница
-- [Media server](https://github.com/Sapfir0/HomeApps/tree/master/radarr)
-    - Radarr — медиасервер для фильмов
-    - Sonarr — медиасервер для сериалов
-    - Transmission — торрент трекер
-    - Jellyfin
-    - Prowlarr
-    - Overseer
-- [iCloud exporter](https://github.com/Sapfir0/HomeApps/tree/master/icloud) — кронджоба в докере, которая получает данные из iCloud и кладет в хранилище Photoprism
-- [Keenetic-exporter](https://github.com/Sapfir0/HomeApps/tree/master/keenetic-exporter) — экспортирует данные с сервера по загрузке роутера и сети. Нужно добавить сеть к Prometheus.
-- [Minecraft-server](https://github.com/Sapfir0/HomeApps/tree/master/minecraft-server) — для того, чтобы была аналитика и данные приходили в Prometheus, нужно добавить контейнеру прометея сеть из minecraft-server.
-- [Shadow socks proxy](https://github.com/Sapfir0/HomeApps/tree/master/shadowscoks-proxy) — конфиг VPN.
+* [Immich](https://github.com/Sapfir0/HomeApps/tree/master/immich) — stores photos
 
-## Raspberry Pi 4
+* [Heimdall](https://github.com/Sapfir0/HomeApps/tree/master/heimdall) — homepage / dashboard
 
-- [Home assistant](https://github.com/Sapfir0/home-assistant) — развернут на HA OS
+* [Media server](https://github.com/Sapfir0/HomeApps/tree/master/radarr)
 
+  * Radarr — movie management server (disabled per now)
+  * Sonarr — TV series management server (disabled per now)
+  * Transmission — BitTorrent client
+  * Jellyfin
+  * Prowlarr - disabled per now
+  * Overseerr - disabled per now
 
-## Keenetic Giga
+* [iCloud exporter](https://github.com/Sapfir0/HomeApps/tree/master/icloud) — a Docker cron job that retrieves data from iCloud and stores it in the PhotoPrism storage
 
-* [TPWS](https://github.com/Sapfir0/keenetic-opkg)
+* [Keenetic Exporter](https://github.com/Sapfir0/HomeApps/tree/master/keenetic-exporter) — exports router and network traffic/load data from the server. The network needs to be added to Prometheus.
 
-
-
+* [Minecraft Server](https://github.com/Sapfir0/HomeApps/tree/master/minecraft-server) — to collect analytics and send data to Prometheus, the Prometheus container needs to be connected to the `minecraft-server` network.
