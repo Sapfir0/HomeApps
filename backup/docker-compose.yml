@@ -8,8 +8,8 @@ services:
       - TZ=Europe/Moscow
     volumes:
       - /home/alexander/backup/config:/config
-      - /home/alexander/external-ssd:/backups
-      - /srv/samba/share/images:/backup-images:ro
+      - /srv/samba/share/images:/SHARED_IMAGES:ro # from
+      - /home/alexander/external-ssd:/backuped_images # to
     restart: unless-stopped
     ports:
       - 8200:8200
